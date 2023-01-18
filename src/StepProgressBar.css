@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  outline: none;
+  text-decoration: none;
+  font-family: 'Sora', sans-serif;
+}
+.App {
+  background-color: #ffffff;
+}
+
+.StepsBar {
+  height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  position: relative;
+}
+.StepsBar ul {
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 10px;
+}
+.StepsBar-item {
+  position: relative;
+  min-width: 150px;
+  max-width: 100%;
+  row-gap: 10px;
+  flex: 1;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+.StepsBar-item + .StepsBar-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 17px;
+  background-color: #00bc13;
+  height: 2px;
+  width: 100%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+.StepsBar-item .StepsBar-count {
+  position: relative;
+  z-index: 1;
+  height: 36px;
+  width: 36px;
+  /* background-color: #00bc13; */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: transparent;
+}
+.StepsBar-item .StepsBar-count::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  background-color: #00bc13;
+}
+.StepsBar-item .StepsBar-label {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 132%;
+  text-align: center;
+  color: #676767;
+}
+.StepsBar-label span:nth-child(2) {
+  font-weight: 700;
+  font-size: 12px;
+}
+.StepsBar-item.StepsBar-item-current .StepsBar-count::after,
+.StepsBar-item.StepsBar-item-current::after {
+  background-color: #acacac;
+}
+.StepsBar-item.StepsBar-item-current .StepsBar-label {
+  color: #acacac;
+}
+.StepsBar-item.StepsBar-item-current .StepsBar-count svg {
+  background-color: #acacac;
+  display: none;
+}
+.StepsBar-item.StepsBar-item-current .StepsBar-count::after {
+  height: 16px;
+  width: 16px;
+  z-index: -1;
+}
