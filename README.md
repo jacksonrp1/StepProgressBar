@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+<div style="display: inline">
+  <a href="https://www.jacksondev.com.br/" target="_blank">
+    <img src="https://img.shields.io/static/v1?label=Website&message=JacksonDev&color=red&style=for-the-badge&logo=webflow"/>
+  </a>
+  <a href="https://pt-br.reactjs.org/" target="_blank">
+    <img src="https://img.shields.io/static/v1?label=&message=React Js&color=202124&style=flat-square&logo=react"/>
+  </a>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Projeto Dashboard
 
-## Available Scripts
+### <a href="https://jacksonrp1.github.io/Dashboard/build/index.html">Clique aqui</a> para visualizar o projeto concluído.
 
-In the project directory, you can run:
+#### Scripts Disponíveis
 
-### `npm start`
+```
+git clone https://github.com/jacksonrp1/StepProgressBar.git
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Dentro do projeto recém-clonado, você pode executar:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+npm install
+```
 
-### `npm test`
+No diretório do projeto, execute:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+npm start
+```
 
-### `npm run build`
+Abra http://localhost:3000 para visualizá-lo em seu navegador.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A página será recarregada quando você fizer alterações.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Assim que o component for chamado, informe um Array de Objetos com :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!--ts-->
 
-### `npm run eject`
+- etapa: - só para organizar o fluxo, não aparece.
+- label: - mensagem que apresenta abaixo do step.
+- data: - data que apresenta abaixo do label.
+- concluido: - 0 ou 1.
+<!--te-->
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```javascript
+{
+import StepProgressBar from './StepProgressBar.js'
+import moment from 'moment/moment'
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+export default function App() {
+  const date = moment()
+  const stepbar = [
+    {
+      etapa: 1,
+      label: 'Aguardando Pagamento',
+      data: date.add(-5, 'day').format('DD/MM/YYYY HH:mm'),
+      concluido: 1
+    },
+    {
+      etapa: 2,
+      label: 'Pedido recebido',
+      data: date.add(1, 'day').format('DD/MM/YYYY HH:mm'),
+      concluido: 1
+    },
+    {
+      etapa: 3,
+      label: 'Aguardando Envio',
+      data: date.add(1, 'day').format('DD/MM/YYYY HH:mm'),
+      concluido: 1
+    },
+    {
+      etapa: 4,
+      label: 'Enviado',
+      data: date.add(1, 'day').format('DD/MM/YYYY HH:mm'),
+      concluido: 1
+    },
+    {
+      etapa: 5,
+      label: 'Pedido entregue',
+      data: date.add(1, 'day').format('DD/MM/YYYY HH:mm'),
+      concluido: 1
+    }
+  ]
+  return (
+    <div className="App">
+      <StepProgressBar steps={stepbar} />
+    </div>
+  )
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Abaixo exemplo de como fica o StepProgressBar após ter informando todos objetos com concluído = 1:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![image](https://user-images.githubusercontent.com/83042566/213297728-dbc4377d-081a-4adf-ab34-c540ee276e38.png)
 
-## Learn More
+### Abaixo exemplo de como fica o StepProgressBar após ter informando os 2 últimos com concluído = 0:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![image](https://user-images.githubusercontent.com/83042566/213299679-bd3631c5-5787-4304-9f28-259dd72ef0fa.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Esse projeto cria os Steps conforme a quantidade de objetos informado ao componente.
 
-### Code Splitting
+Você também pode ver erros no console.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+npm test
+```
 
-### Analyzing the Bundle Size
+Inicia o executor de teste no modo de observação interativo.
+Consulte a seção sobre como executar testes para obter mais informações.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+npm run build
+```
 
-### Making a Progressive Web App
+Cria o aplicativo para produção na pasta `build`.
+Ele agrupa corretamente o React no modo de produção e otimiza a compilação para o melhor desempenho.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+A compilação é minificada e os nomes dos arquivos incluem os hashes.
+Seu aplicativo está pronto para ser implantado!
