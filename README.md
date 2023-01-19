@@ -7,9 +7,9 @@
   </a>
 </div>
 
-# Projeto Dashboard
+# Projeto Step Progress Bar
 
-### <a href="https://jacksonrp1.github.io/Dashboard/build/index.html">Clique aqui</a> para visualizar o projeto concluído.
+### <a href="https://jacksonrp1.github.io/StepProgressBar/build/">Clique aqui</a> para visualizar o projeto concluído.
 
 #### Scripts Disponíveis
 
@@ -36,14 +36,13 @@ A página será recarregada quando você fizer alterações.
 ## Assim que o component for chamado, informe um Array de Objetos com :
 
 <!--ts-->
-
-- etapa: - só para organizar o fluxo, não aparece.
-- label: - mensagem que apresenta abaixo do step.
-- data: - data que apresenta abaixo do label.
-- concluido: - 0 ou 1.
+  * etapa: - só para organizar o fluxo, não aparece.
+  * label: - mensagem que apresenta abaixo do step.
+  * data: - data que apresenta abaixo do label.
+  * concluido: - 0 ou 1.
 <!--te-->
 
-```javascript
+``` javascript
 {
 import StepProgressBar from './StepProgressBar.js'
 import moment from 'moment/moment'
@@ -89,13 +88,10 @@ export default function App() {
   )
 }
 ```
-
 ### Abaixo exemplo de como fica o StepProgressBar após ter informando todos objetos com concluído = 1:
-
 ![image](https://user-images.githubusercontent.com/83042566/213297728-dbc4377d-081a-4adf-ab34-c540ee276e38.png)
 
 ### Abaixo exemplo de como fica o StepProgressBar após ter informando os 2 últimos com concluído = 0:
-
 ![image](https://user-images.githubusercontent.com/83042566/213299679-bd3631c5-5787-4304-9f28-259dd72ef0fa.png)
 
 ## Esse projeto cria os Steps conforme a quantidade de objetos informado ao componente.
